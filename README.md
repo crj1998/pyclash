@@ -14,12 +14,19 @@ python setup.py develop
 ```
 
 ## Usage
+### cli
 ```bash
 clash version
 clash update --url <SUBSCRIBE>
 clash list
 clash connect -n <NODEID>
 ```
+
+### check state
+```bash
+ps aux | grep trojan | grep -v grep
+```
+
 
 ### Use proxy
 ```bash
@@ -37,6 +44,13 @@ git config --global --unset https.proxy
 export ALL_PROXY="socks5://127.0.0.1:1080"
 unset ALL_PROXY
 ```
+
+### proxychains
+```
+apt install proxychains
+```
+edit `/etc/proxychains.conf` and comment `socks4`, add `socks5 127.0.0.1 1080` in `ProxyList`.
+Then use `proxychains cmd`, e.g. `proxychains curl -4 ip.sb`.
 
 
 ## Mechanism
